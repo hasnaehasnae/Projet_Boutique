@@ -1,0 +1,14 @@
+{%  if connecte == 0 %}
+<li><a href="{{ path("fos_user_security_login") }}" class="mn" ><span class="glyphicon glyphicon-log-in"></span> Se connecter/S'inscrire</a></li>
+{% else %}
+
+<li class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilisateur1
+       <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+         <li><a href="#">Edition</a></li>
+         <li><a href="#">Profile</a></li>
+  <li>  <a href="{{ path("fos_user_security_logout") }}" class="mn" > Se déconecter</a></li>
+       </ul>
+     </li>
+{% endif %}

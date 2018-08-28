@@ -1,0 +1,22 @@
+<Table style="margin-top:1em;">
+  <tr>
+    <td class="span1">&nbsp
+         <a href="{{ path('panier')}}">
+<span class="glyphicon glyphicon-shopping-cart"></span></a>
+
+ &nbsp
+ {{ articles }}
+ article &nbsp</td>
+
+ {% set totalHT = 0 %}
+ {% set total = 0  %}
+{% for produit in produits %}
+{% set total =  total + (produit.prix * panier[produit.id]) %}
+ {% endfor %}
+    <td class="span3" >&nbsp {{ total }} DH &nbsp &nbsp</td>
+<td class="span4" >&nbsp  &nbsp  </td>
+<td class="span5" > <a href="#"> &nbsp FR <img src="{{ asset('images/france.png') }}" />&nbsp</a> <a href="#"> -&nbsp AR <img src="{{ asset('images/maroc.png')}}" />&nbsp</a></td>
+
+
+  </tr>
+</Table>

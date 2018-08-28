@@ -1,0 +1,27 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+
+<div class="row">
+<div class="col-sm-6">
+
+    <label style="font-size:19px;" > Récupération du mot de passe ?  </label> <br>
+Il vous suffit de Compléter le formulaire,et votre mot de passe sera <br>
+alors réinitialiser.<br>
+
+<br>Une fois validé, vous alliez utiliser le nouveau mot de passe que<br> vous avez choisi
+</div>
+<div class="col-sm-6">
+<br>
+<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
+    {{ form_widget(form) }}
+    <div>
+        <input  class="btn btn-primary " type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+    </div>
+</form>
+</div>
+</div>
+
+
+
+</div>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://demo.mutationmedia.net/NEW/?storefront=envato-elements -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="Benaissa Ghrib">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>NEW : Creative One Page Template</title>
+
+
+{% block stylesheet %}
+
+<link href="{{ asset( 'css/main2.css') }}"  rel="stylesheet" type="text/css">
+<link href="{{ asset( 'css/main3.css') }}"  rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% endblock %}
+
+
+{%  block javascripts  %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+
+
+</head>
+    <body>
+
+        {%  block header %}
+
+        	<!-- Preloader -->
+        	<div id="loader" style="display: none;">
+        	  <div id="loaderInner" style="display: none;"></div>
+        	</div>
+
+        <!--Wrapper-->
+        <div id="wrapper">
+
+
+        	<!--Header-->
+        	<header id="header">
+
+        		<!--Main header-->
+            <div class="mainHeader">
+
+
+        				<!--Container-->
+        			<div class="clearfix">
+        			 <div class="row">
+        			 <div class="col-xs-6 col-sm-3" >
+        	<a href="#wrapper"><div class="logo" style="margin-left:2em;"> <img  src="{{ asset('images/logo.png') }}"  width="182" height="67" alt="" ></a></div></div>
+
+          <div class="col-xs-6 col-sm-3">
+        	</div>
+        	<div class="col-xs-6 col-sm-3">
+
+
+
+        	</div>
+            <div class="col-xs-6 col-sm-3" >
+
+              {% render(controller('EcommerceBundle:Panier:menu'))%}
+        	</div>
+
+
+             </div>
+
+      <!-- nav header  -->
+        			<nav class="navbar navbar-inverse ">
+          <div class="container-fluid">
+
+            <ul class="nav navbar-nav ">
+              <li ><a href="#" class="mn" >Home</a></li>
+              <li><a href="{{ path('Produit_list')}}" class="mn" >Catalogues</a></li>
+              <li><a href="#" class="mn" >Promotions</a></li>
+              <li><a href="#" class="mn" >Abonnements</a></li>
+              <li class="dropdown" >
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu" >
+              {% render(controller('EcommerceBundle:Produit:categories')) %}
+            </ul>
+                  </li>
+            </ul>
+                   {% render(controller('EcommerceBundle:Produit:recherche'))%}
+
+        	 <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="mn" ><span class="glyphicon glyphicon-user"></span>Mon Compte </a></li>
+               {% render(controller('EcommerceBundle:Produit:identification'))%}
+                </ul>
+          </div>
+        </nav>
+        		<!--End nav  header-->
+
+        			</div>
+        	</header>
+        {% endblock %}
+        <div   style="">
+        {% block body %}{% endblock %}
+      </div>
+        {% block footer %}
+        <footer class="footer navbar-bottom" >
+        <div class="">
+        										<center>
+        					<div class="panel panel-default" >
+
+        					<div class="panel-body exemp2">
+        					<br>
+        					<div class="row">
+        <div class="col-md-4">
+
+        <div class="text"><p><span style="font-size:16px; font-weight:bold;color:#87CEFA;"> Nos   Information </span><br>
+                                   <div class="mj">
+              <a  style="font-family:Verdana; color:white;"  href="http://demo.mutationmedia.net/NEW/?storefront=envato-elements#">CGV</a><br>
+
+              <a  style="font-family:Verdana; color:white;"  href="http://demo.mutationmedia.net/NEW/?storefront=envato-elements#">notre adresse </a><br>
+                                       </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+
+        <div class="text"><span style="font-size:17px; font-weight:bold;color:#87CEFA;"> Nous appeler </span><br>
+                                    <div class="mj">
+                        <span class="glyphicon glyphicon-phone"></span>123-456-789-890 <br>
+        				<span class="glyphicon glyphicon-phone-alt"></span> 123-456-789-456<br>
+                                    </div>
+        								</div>
+        </div>
+        <div class="col-md-4">
+
+        <div class="text"><span style="font-size:17px; font-weight:bold;color:#87CEFA;">Nous contacter </span><br>
+                                     <div class="mj">
+        				<span class="glyphicon glyphicon-envelope"></span>&nbsp<a  style="font-family:Verdana; color:white;"  href="http://demo.mutationmedia.net/NEW/?storefront=envato-elements#">compagny@gmail.com</a><br>
+        				<span style="color:#87CEFA;">@	</spn><a  style="font-family:Verdana; color:white;"  href="http://demo.mutationmedia.net/NEW/?storefront=envato-elements#">support@domainename.com</a><br>
+                                    </div>
+        															 </div>
+        </div>
+
+
+        </div>
+        					</div>
+        					</div>
+        					</div>
+</footer>
+         {% endblock %}
+
+    </body>
+</html>

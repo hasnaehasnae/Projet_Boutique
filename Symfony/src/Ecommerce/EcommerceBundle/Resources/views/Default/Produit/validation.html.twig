@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+
+{% set totalHT = 0    %}
+{% set totalTTC = 0   %}
+{% set refTva = {}    %}
+
+
+{% block body %}
+<br><br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row">
+
+        <div class="span9">
+
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            <h2>Valider mon panier</h2>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Références</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Total HT</th>
+                    </tr>
+                </thead>
+                <tbody>
+      {% if produits|length == 0 %}
+                        <tr>
+                            <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+                        </tr>
+                    {% endif %}
+
+                    {% for produit in produits %}
+                    <tr>
+                        <form action="{{ path('ajouter', { 'id' : produit.id }) }}" method="get">
+                            <td>{{ produit.designationP}}</td>
+                            <td>
+                                {{ panier[produit.id] }}
+                            </td>
+                            <td>{{ produit.prix }} €</td>
+                            <td>{{ produit.prix * panier[produit.id] }} €</td>
+                        </form>
+                    </tr>
+                    {% set totalHT = totalHT + (produit.prix * panier[produit.id]) %}
+
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <dl class="dl-horizontal pull-right">
+                <dt>Total HT :</dt><dd>{{ totalHT }} €</dd>
+
+                {% for key, tva in refTva %}
+                    <dt>TVA {{ key }} :</dt><dd>{{ tva }} €</dd>
+                {% endfor %}
+
+                <dt>Total TTC :</dt><dd>{{ totalTTC }} €</dd>
+            </dl>
+
+            <div class="span4 pull-left">
+                <dl class="pull-left">
+                    <dt><h4>Adresse de livraison</h4></dt>
+                    <dt>{{ livraison.description }}</dt>
+                    <dt> {{ livraison.ville }}-{{ livraison.pays}}-{{ livraison.codePostal }} </dt>
+              </dl>
+            </div>
+
+            <div class="clearfix"></div>
+            <a href="#" class="btn btn-success pull-right">Payer</a>
+            <a href="{{ path('livraison') }}" class="btn btn-primary">retour</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

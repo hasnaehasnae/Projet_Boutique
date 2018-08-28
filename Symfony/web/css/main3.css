@@ -1,0 +1,82 @@
+.span1{
+padding-top:10px ;
+padding-bottom: 10px ;
+  background-color:#B0C4DE;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:20px;
+  color:white;
+}
+
+.pn{
+  margin-left:2em;
+  width:12em ;
+}
+.pn2{
+  height: 2.5em;
+  width:3em ;
+  float:left;
+  margin-right:1em;
+    border-radius: 10px;
+}
+div.inline { float:left; }
+.span1{
+padding-top:10px ;
+padding-bottom: 10px ;
+  background-color:#AFEEEE;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:20px;
+  color:white;
+}
+.span1:hover{
+  color:Black;
+  background-color: #AFEEEE;
+}
+.exemp2{
+	background-color: black;
+  color:white;
+}
+.span5{
+padding-top:10px ;
+padding-bottom: 10px ;
+  background-color:#F0FFFF;
+
+  font-weight:bold;
+  margin-top:20px;
+  color:white;
+   border-radius: 25px;
+}
+.mj{
+  margin-top:1em;
+}
+.glyphicon{
+  color:#87CEFA !important;
+}
+
+.span3{
+
+padding-top:10px ;
+padding-bottom: 10px ;
+  background-color:#87CEFA;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:20px;
+
+}
+.div1{
+  margin-top:20px;
+
+}
+.span2{
+  padding-left:10px ;
+  padding-right:10px ;;
+  padding-top:10px ; ;
+  padding-bottom: 10px ;;
+    background-color:blue;
+    font-size:15px;
+    font-weight:bold;
+    margin-top:10px;
+    margin-left:10px;
+}

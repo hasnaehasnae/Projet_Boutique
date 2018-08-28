@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{%  block body %}
+<br>
+<br>
+<br><br>
+<br><br><br><br>
+
+Formulaire: <br>
+<form method="post" action="{{ path('ecommerce_page2') }}">
+{{ form(form) }}
+</form>
+
+
+{% endblock %}

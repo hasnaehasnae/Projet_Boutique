@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+{%  form_theme form "FOSUserBundle::BoostrabForm.html.twig" %}
+{% block body %}
+<br><br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+
+                      {% if utilisateur.adresses|length != 0 %}
+                        <form action="{{ path('validation') }}" method="POST">
+
+                            <h3>Adresse de livraison</h3>
+                            {% for adresse in utilisateur.adresses %}
+                            <label class="radio">
+                                <input type="radio" name="livraison" value="{{ adresse.id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
+                                {{ adresse.description }}, {{ adresse.ville }} {{ adresse.pays }} - {{ adresse.codePostal }} <a href="{{ path('suppression', { 'id' : adresse.id})}}"><span class="glyphicon glyphicon-trash"></span></a>
+                                <br />
+                            </label>
+                            {% endfor %}
+
+                            <br /><br />
+                            <button class="btn btn-primary">Valider mes adresses</button>
+                        </form>
+                        {% endif %}
+                    </div>
+          <div class="col-sm-6">
+                        <h3>Ajouter une nouvelle adresse</h3>
+                        <form action="{{ path('livraison') }}" method="POST">
+                            {{ form_widget(form) }}
+                            <br>
+                            <button class="btn btn-primary" type="submit">Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

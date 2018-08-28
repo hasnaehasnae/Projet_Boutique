@@ -1,0 +1,50 @@
+ecommerce_homepage:
+    path:     /
+    defaults: { _controller: EcommerceBundle:Default:index }
+
+ecommerce_page2:
+    path:    /hello2/
+    defaults: { _controller: EcommerceBundle:Test:Testform }
+ecommerce_produits:
+    path:    /produits/
+    defaults: { _controller: EcommerceBundle:Produit:produits }
+categorieProduits:
+    path:    /categories/{categorie}
+    defaults: { _controller: EcommerceBundle:Produit:categorieProd }
+categories:
+    path:    /categories/
+    defaults: { _controller: EcommerceBundle:Produit:categories }
+
+rechercheProduits:
+    pattern:  /recherche
+    defaults: { _controller: EcommerceBundle:Produit:rechercheTraitement }
+
+
+ajouter:
+    pattern:  /ajouter/{id}
+    defaults: { _controller: EcommerceBundle:Panier:ajouter }
+
+supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: EcommerceBundle:Panier:supprimer }
+
+
+panier:
+    pattern:  /panier
+    defaults: { _controller: EcommerceBundle:Panier:Panier }
+
+livraison:
+    pattern:  /livraison
+    defaults: { _controller: EcommerceBundle:Panier:livraisonTraitement }
+
+validation:
+    pattern:  /validation
+    defaults: { _controller: EcommerceBundle:Panier:validationTraitement }
+
+suppression:
+    pattern:  /suppression/{id}
+    defaults: { _controller: EcommerceBundle:Panier:suppressionAdresse }
+
+Produit_list:
+    pattern:  /Produit/list/{page}
+    defaults: { _controller: EcommerceBundle:Produit:list, page: 1 }

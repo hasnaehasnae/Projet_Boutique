@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+{%  block body %}
+
+<br><br><br><br><br><br><br><br>
+<div class="container" >
+   {% if produits|length != 0 %}
+
+   {% for produit in produits %}
+
+                <div class="panel panel-default pn inline">
+<div class="panel-body">  <h4>{{ produit.designationP }}</h4>
+                                        <p>{{ produit.prix }} €</p>     </div>
+
+                {% for image in  produit.images %}
+                   <p>image.url1 </p>
+                {% endfor %}
+
+               <form action="{{ path('ajouter', { 'id' : produit.id }) }}" method="get">
+
+<div class="panel-footer">
+<select class="pn2" name="qte">
+{% for i in 1..10 %}
+     <option>{{ i }}</option>
+{% endfor %}
+ </select>
+          <button class="btn btn-info">J'achéte</button>
+                 </form>
+
+</div>
+</div>
+                {% endfor %}
+
+
+                {% else %}
+                    <h2>        Aucun produit trouvé  <h2>
+              {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
